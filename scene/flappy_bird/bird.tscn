@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://cnsrvhtyn8gmt"]
+
+[ext_resource type="Script" path="res://scene/flappy_bird/bird.gd" id="1_q41a4"]
+[ext_resource type="Texture2D" uid="uid://edc83l5clnxo" path="res://scene/flappy_bird/asset/bird2_0.png" id="2_7el0l"]
+[ext_resource type="Texture2D" uid="uid://qjbkgilj03ar" path="res://scene/flappy_bird/asset/bird2_1.png" id="3_aj8gd"]
+[ext_resource type="Texture2D" uid="uid://bsx4sto7jbriq" path="res://scene/flappy_bird/asset/bird2_2.png" id="4_4t1ml"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_ms4bw"]
+radius = 16.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_a1hjt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_7el0l")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_aj8gd")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_4t1ml")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_aj8gd")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Bird" type="Area2D"]
+collision_layer = 2
+script = ExtResource("1_q41a4")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_ms4bw")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_a1hjt")
+autoplay = "default"
+frame_progress = 0.751928
+
+[connection signal="area_entered" from="." to="." method="_on_area_entered"]
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

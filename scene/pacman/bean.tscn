@@ -1,0 +1,18 @@
+[gd_scene load_steps=4 format=3 uid="uid://f0iu8epotnlj"]
+
+[ext_resource type="Script" path="res://scene/pacman/bean.gd" id="1_38yp7"]
+[ext_resource type="Texture2D" uid="uid://d3wmwp0l4vvx" path="res://scene/pacman/assets/Pacdot.png" id="1_aocar"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4xa88"]
+size = Vector2(6, 6)
+
+[node name="Bean" type="StaticBody2D"]
+script = ExtResource("1_38yp7")
+metadata/_edit_group_ = true
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_4xa88")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("1_aocar")

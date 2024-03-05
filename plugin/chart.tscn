@@ -1,0 +1,25 @@
+[gd_scene load_steps=3 format=3 uid="uid://dq5hjdtcaxc4k"]
+
+[ext_resource type="Script" path="res://plugin/chart.gd" id="1_23s0h"]
+[ext_resource type="Script" path="res://natural_stage/natural_stage.gd" id="2_p8p13"]
+
+[node name="Chart" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_23s0h")
+background_color = Color(0.145098, 0.137255, 0.180392, 1)
+line_color = Color(0.262745, 0.262745, 0.262745, 1)
+point_color = Color(0.270588, 0.415686, 0.454902, 1)
+line_width = 1.255
+x_points = Array[float]([1.0, 32.0, 66.0])
+y_points = Array[float]([5.0, 55.0, 0.0])
+
+[node name="NaturalStage" type="Node" parent="."]
+script = ExtResource("2_p8p13")
+gene_size = 2
+gene_range = Vector2(0, 1)
+optimal_retention_rate = 0.4

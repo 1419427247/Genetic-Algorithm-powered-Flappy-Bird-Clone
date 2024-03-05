@@ -1,0 +1,33 @@
+[gd_scene load_steps=3 format=3 uid="uid://hiyr8ptho727"]
+
+[ext_resource type="Texture2D" uid="uid://blftupr6h4cxh" path="res://scene/flappy_bird/asset/pipe_up.png" id="1_v1wxk"]
+
+[sub_resource type="GDScript" id="GDScript_kxwbm"]
+script/source = "extends StaticBody2D
+
+@export var speed : float = 60;
+
+func _process(delta: float) -> void:
+	position.x -= speed * delta
+"
+
+[node name="Pipeline" type="StaticBody2D" groups=["管道"]]
+script = SubResource("GDScript_kxwbm")
+
+[node name="Down" type="Sprite2D" parent="."]
+position = Vector2(0, 225)
+texture = ExtResource("1_v1wxk")
+
+[node name="Up" type="Sprite2D" parent="."]
+position = Vector2(0, -225)
+rotation = -3.14159
+texture = ExtResource("1_v1wxk")
+
+[node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="." groups=["管道"]]
+position = Vector2(0, 225)
+polygon = PackedVector2Array(26, 160, -26, 160, -26, -160, 26, -160)
+
+[node name="CollisionPolygon2D2" type="CollisionPolygon2D" parent="." groups=["管道"]]
+position = Vector2(0, -225)
+rotation = -3.14159
+polygon = PackedVector2Array(26, 160, -26, 160, -26, -160, 26, -160)
